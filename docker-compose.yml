@@ -1,0 +1,38 @@
+version: "3"
+services:
+  app:
+    build: .
+    image: screencastify:dev
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - dev-network
+    environment:
+      MONGO_HOST: "mongo"
+    # Mount source files from the host (your machine) in the container, so you can make changes without having to rebuild
+    # the image
+    volumes:
+      - "./:/app/:ro"
+      - "node_modules:/app/node_modules/:ro"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    networks:
+      - dev-network
+    volumes:
+      - "data:/data/db"
+      - "./scripts/:/scripts:ro"
+
+volumes:
+  # Persist node_modules as a separate named volume, to reduce start up time
+  node_modules:
+  data:
+
+
+networks:
+  dev-network: {}
