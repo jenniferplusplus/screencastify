@@ -8035,6 +8035,11 @@
   dependencies:
     "xtend" "^4.0.0"
 
+"prettier@^2.6.2":
+  "integrity" "sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew=="
+  "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.6.2.tgz"
+  "version" "2.6.2"
+
 "prettier@2.2.1":
   "integrity" "sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q=="
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.2.1.tgz"
@@ -8692,6 +8697,8 @@
   "version" "0.1.1"
 
 "redux-localstorage@rc":
+  "integrity" "sha1-cGe8TLCwO1x5ECWsM93mF11Q1dE="
+  "resolved" "https://registry.npmjs.org/redux-localstorage/-/redux-localstorage-1.0.0-rc5.tgz"
   "version" "1.0.0-rc5"
 
 "redux-saga@^0.16.0":
