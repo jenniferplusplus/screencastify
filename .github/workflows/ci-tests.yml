@@ -21,6 +21,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Prettier Linter
+      uses: creyD/prettier_action@v4.2
+      with:
+        # This part is also where you can pass other options, for example:
+        prettier_options: --check *.js **/*.js
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:

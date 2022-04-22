@@ -1,8 +1,8 @@
 function graphql(query, variables = {}) {
-  return fetch('/admin/api', {
-    method: 'POST',
+  return fetch("/admin/api", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       variables,
@@ -52,7 +52,7 @@ function addTodo(event) {
   event.preventDefault();
   const form = event.target;
   // Find the 'add-item' input element
-  const element = form.elements['add-item'];
+  const element = form.elements["add-item"];
   if (element) {
     graphql(ADD_TODO, { name: element.value }).then(fetchData);
   }
@@ -67,17 +67,17 @@ function removeTodo(todo) {
 
 function createToDoItem(todo) {
   // Create the remove button
-  const removeItemButton = document.createElement('button');
-  removeItemButton.classList.add('remove-item', 'js-remove-todo-button');
+  const removeItemButton = document.createElement("button");
+  removeItemButton.classList.add("remove-item", "js-remove-todo-button");
   removeItemButton.innerHTML = DELETE_ICON;
   // Attach an event to remove the todo
-  removeItemButton.addEventListener('click', function () {
+  removeItemButton.addEventListener("click", function () {
     removeTodo(todo);
   });
 
   // Create the list item
-  const listItem = document.createElement('li');
-  listItem.classList.add('list-item');
+  const listItem = document.createElement("li");
+  listItem.classList.add("list-item");
   // Add text to the listItem
   listItem.innerHTML = todo.name;
   // append the remove item button
@@ -88,8 +88,8 @@ function createToDoItem(todo) {
 
 function createList(data) {
   // Create the list
-  const list = document.createElement('ul');
-  list.classList.add('list');
+  const list = document.createElement("ul");
+  list.classList.add("list");
   data.allTodos.forEach(function (todo) {
     list.appendChild(createToDoItem(todo));
   });
@@ -100,20 +100,20 @@ function fetchData() {
   graphql(GET_TODOS)
     .then(function (result) {
       // Clear any existing elements from the list
-      document.querySelector('.results').innerHTML = '';
+      document.querySelector(".results").innerHTML = "";
 
       // Recreate the list and append it to the .results div
       const list = createList(result.data);
-      document.querySelector('.results').appendChild(list);
+      document.querySelector(".results").appendChild(list);
     })
     .catch(function (error) {
       console.log(error);
-      document.querySelector('.results').innerHTML = '<p>Error</p>';
+      document.querySelector(".results").innerHTML = "<p>Error</p>";
     });
 }
 
 // Replace the script tag with the app
-document.getElementById('todo-app').parentNode.innerHTML = `
+document.getElementById("todo-app").parentNode.innerHTML = `
 <div class="app">
   <h1 class="main-heading">Welcome to Keystone&nbsp;5!</h1>
   <p class="intro-text">
@@ -135,6 +135,6 @@ document.getElementById('todo-app').parentNode.innerHTML = `
 </div>`;
 
 // Add event listener to the form
-document.querySelector('.js-add-todo-form').addEventListener('submit', addTodo);
+document.querySelector(".js-add-todo-form").addEventListener("submit", addTodo);
 // Fetch the initial data
 fetchData();

@@ -1,7 +1,7 @@
-var assert = require('assert');
+var assert = require("assert");
 
-describe('tests', function () {
-    it('should run and pass', function () {
-        assert.equal(true, true);
-    });
+describe("tests", function () {
+  it("should run and pass", function () {
+    assert.equal(true, true);
+  });
 });
